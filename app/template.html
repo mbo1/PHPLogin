@@ -1,0 +1,19 @@
+<!-- tag panel to be cloned -->
+<div id="TagPanelX1" class="col-xs-6 col-md-4" hidden>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div ng-app="app" ng-controller="TagGroupPanelHeadingX">
+                <a href="#" editable-text="user.name" style="color:white"><h3 class="panel-title">{{ user.name || 'empty' }}</h3></a>
+            </div>
+            <div class="dropdown">
+                <i class="indicator glyphicon glyphicon-menu-hamburger dropdown-toggle pull-right" data-toggle="dropdown"></i>
+                <ul id="GroupTagPopup" class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#" id="EditTagGroupX">Edit</a></li>
+                    <li><a href="#" id="DeleteTagGroupX">Delete</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-body">
+        </div>
+    </div>
+</div>

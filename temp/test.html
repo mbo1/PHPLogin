@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TagME">
+    <meta name="author" content="Marcio boldorini">
+    <title>Bootstrap 3</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/xeditable.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-editable.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+
+<body ng-app="app">
+    <!-- ng-controller="AppCtrl" -->
+    <div ng-include ng-src="'../app/template.html'"></div>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- container-fluid -->
+            <a href="#" class="navbar-brand" title="Something">TagME</a>
+            <!-- <img style="max-width:100px; margin-top:-15px; margin-left:65px;"src="../images/tag_blue_led.ico"> -->
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse navHeaderCollapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="#">Links</a></li>
+                    <li><a href="#">Ranking</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar-success"><a href="#">Donations</a></li>
+                    <li class="active"><a href="#">Login / Sign up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img src="../images/someone.jpg" height="150px" width="150px" class="pull-left img-thumbnail img-responsive"></img>
+                <div class="pull-left" style="padding-left: 10px">
+                    <h1><strong>Name Surname</strong><small><p>Profession / Slogan</p></small></h1>
+                    <a href="#">Tags <span class="badge alert-info">25</span></a>
+                    <a href="#">Links <span class="badge alert-danger">1250</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">My Tags</h3>
+                <!-- <i id="EditMyTagsButton" class="indicator glyphicon glyphicon-plus dropdown-toggle pull-right" data-toggle="modal" data-target="#modalCreateTagGroup"></i> -->
+                <!-- <i id="AddTagGroup" class="indicator glyphicon glyphicon-plus dropdown-toggle pull-right" ng-click="addPanelGroup()"></i> -->
+                <div ng-controller="GroupCtrl">
+                    <button type="button" class="indicator glyphicon glyphicon-plus pull-right" ng-click="addPanelGroup()"></button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="TagPanels" class="row">
+                    <div id="TagPanel1" class="col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-model="comment.text">
+                        <div class="panel panel-info">
+                            <div class="panel-heading customPanelTitle">
+                                <div ng-controller="PanelTitleCtrl">
+                                    <a href="#" editable-text="user.name" style="color:white"><h3 class="panel-title">{{ user.name || 'empty' }}</h3></a>
+                                </div>
+                                <div class="dropdown">
+                                    <!--<h3 id="GroupTitle3" class="panel-title"><a href="#" data-type="text" data-pk="1" data-title="Enter a group value:">Personal</a></h3> -->
+                                    <button class="indicator glyphicon glyphicon-menu-hamburger dropdown-toggle pull-right" data-toggle="dropdown"></button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#" id="EditTagGroup">Edit</a></li>
+                                        <li><a href="#" id="DeleteTagGroup">Delete</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <a href="#">Development <span class="badge alert-success">25</span></a>
+                                <a href="#">Software development <span class="badge alert-success">25 </span></a>
+                                <a href="#">Database <span class="badge alert-success">25</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <compile-directive2></compile-directive2>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="AlertDemoCtrl">
+        <script type="text/ng-template" id="alert.html">
+            <div class="alert alert-success" style="background-color:#fa39c3;color:white" role="alert">
+                <div ng-transclude></div>
+            </div>
+        </script>
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+        <alert template-url="alert.html">A happy alert!</alert>
+        <button type="button" class='btn btn-primary' ng-click="addAlert()">Add Alert</button>
+    </div>
+    <div foo>
+        <div>the template2</div>
+        <div ng-transclude>Some Content Here</div>
+        <button type="button" class='btn btn-primary' ng-click="showSomething()">show something</button>
+    </div>
+    <div>
+        <h1><p>This is a test1:{{texto}}</p></h1>
+        <input type="text" ng-model="texto">
+    </div>
+    <footer>
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
+            TagME(r) All rights reserved.
+        </div>
+    </footer>
+    <!--     <div ng-controller="TestCtrl">
+    <h1>Features Compiled</h1>
+    <compile-directive></compile-directive>
+    <compile-directive2></compile-directive2>
+</div>
+ -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/ui-bootstrap-tpls-0.13.4.min.js"></script>
+    <script src="../js/bootbox.min.js"></script>
+    <script src="../js/angular-animate.js"></script>
+    <script src="../js/xeditable.min.js"></script>
+    <!-- <script src="../js/bootstrap-editable.min.js"></script> -->
+    <script src="../js/main.js"></script>
+    <!-- must be the last, otherwise .js functions doesn't work nicely -->
+    <!-- /*<script type="text/javascript">console.log("angular object", angular);</script>*/ -->
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+body {
+   background:#eeeeee;
+   padding-top: 60px;
+}
+
+.navbar-inverse .navbar-brand {
+    color:white;
+    background: #EB7260;
+    border-color: white;
+    outline-color: white;
+    width: 115px;
+	/* opacity: 0.9; */
+	text-align: center;
+}
+.navbar-inverse {
+    border-color:#a6a6a6;
+}
+
+
+
+
+
+.badge{
+	color: white;
+}
+.badge.alert-danger {
+	background-color: #d43f3a;
+}
+.badge.alert-warning {
+	background-color: #d58512;
+}
+.badge.alert-success {
+	background-color: #398439;
+}
+.badge.alert-info {
+	background-color: #269abc;
+}
+.badge.alert-inverse {
+	background-color: #333333;
+}
+
+
+
+.customPanelTitle .panel-title:hover{
+	color:yellow;
+}
+.panel.panel-primary{
+	background:white;
+	color: white;
+	border-color:#d6d6d6;
+}
+.panel.panel-info{
+	background:white;
+	color: white;
+	border-color:#d6d6d6;
+}
+.panel.panel-primary .panel-heading{
+	background:#354458;
+	color: white;
+	border-color:#d6d6d6;
+}
+.panel.panel-info .panel-heading{
+	background:#78828F;
+	color: white;
+	border-color:#d6d6d6;
+}
+
+
+
+
+.indicator.glyphicon{
+	background-color:transparent;
+	border:0px solid transparent;
+	display:inline-block;
+	cursor:pointer;
+	color:white;
+	text-decoration:none;
+	outline: none;
+	bottom: 0px;
+	height: 0em;
+	width: 0em;
+	top: -15px;
+	padding: 0em 1em 0em 0em;
+}
+.indicator.glyphicon:hover{
+	color:yellow;
+}
+.indicator.glyphicon:focus{
+}
